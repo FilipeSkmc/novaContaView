@@ -10,4 +10,20 @@ export default class NovaContaView extends LightningElement {
         this.recordId = event.detail.id;
         this.visivel = true;
     }
+
+    handleReset() {
+        //seleciona todos os elementos lightning-input-field
+        const inputFields = this.template.querySelectorAll(
+            'lightning-input-field'
+        );
+
+        //se possuir dados, para cada campo reset
+        if (inputFields) {
+            inputFields.forEach(field => {
+                field.reset();
+            });
+        }
+        //exclui o card que conta criada
+        this.visivel = false;
+     }
 }
