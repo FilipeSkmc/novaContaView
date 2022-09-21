@@ -1,0 +1,33 @@
+<template>
+    <lightning-card title="Nova Conta" icon-name="action:new_account">
+        <div class="slds-m-around_medium">
+            <lightning-record-edit-form object-api-name="Account" onsuccess={handleSuccess}>
+                <p><lightning-messages></lightning-messages></p>
+                <p><lightning-input-field field-name="Name"></lightning-input-field></p>
+                <p><lightning-input-field field-name="Phone"></lightning-input-field></p>
+                <p><lightning-input-field field-name="Rating"></lightning-input-field></p>
+
+                <p>
+                    <lightning-button label="Cancel"></lightning-button>
+                    <lightning-button label="Criar Conta" type="submit" variant="brand"></lightning-button>
+                </p>
+            </lightning-record-edit-form>
+        </div>
+    </lightning-card>
+    <br>
+    <template if:true={visivel}>
+        <lightning-card title="Conta Criada com Sucesso!" icon-name="standard:account">
+            <div class="slds-m-around_medium">
+                <lightning-record-view-form object-api-name="Account" record-id={recordId}>
+                    <lightning-output-field field-name="Name"></lightning-output-field>
+                    <lightning-output-field field-name="Phone"></lightning-output-field>
+                    <lightning-output-field field-name="Rating"></lightning-output-field>
+                </lightning-record-view-form>
+            </div>
+        </lightning-card>
+    </template>
+</template>
+
+
+
+
